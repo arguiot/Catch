@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script src="/eyejs/" charset="utf-8"></script>
+		<script src="/static/catch.js"></script>
+		<script>
+			let error = ""
+			const c = new Catch(err => {
+				error = JSON.stringify(err)
+			})
+
+			undefinedF() // should cause an error
+		</script>
+		<script>
+			eye.test(
+				$ => $(error.length).isLarger(10)
+			)
+			eye.checkout()
+		</script>
+	</body>
+</html>

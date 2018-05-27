@@ -6,7 +6,45 @@
 
 ******************************************************/
 class Catch {
+	browser(handler) {
+		if (window) {
+			window.onerror = function(messageOrEvent, source, noligne, nocolonne, erreur) {
+				const obj = {
+					err: messageOrEvent,
+					src: source,
+					nLine: noligne,
+					nColumn: nocolonne,
+					errObj: erreur,
+					time: new Date().toString()
+				}
+				console.log(obj)
+				handler(obj)
+			}
+		}
+	}
+	constructor(handler) {
+		this.version = "v0.0.1" // Catch version
 	
+		this.listen(handler)
+	}
+	listen(handler) {
+		if (typeof module !== "undefined" && module.exports) {
+			this.node(handler)
+		} else {
+			this.browser(handler)
+		}
+	}
+	node(handler) {
+		if (process) {
+			process.on('uncaughtException', err => {
+				const obj = {
+					err: err,
+					time: new Date().toString()
+				}
+				handler(obj)
+			});
+		}
+	}
 }
 // Browserify / Node.js
 if (typeof define === "function" && define.amd) {
