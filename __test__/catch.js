@@ -8,16 +8,16 @@
 class Catch {
 	browser(handler) {
 		if (window) {
-			window.onerror = function(messageOrEvent, source, noligne, nocolonne, erreur) {
+			window.onerror = (messageOrEvent, source, noligne, nocolonne, erreur) => {
 				const obj = {
 					err: messageOrEvent,
 					src: source,
-					nLine: noligne,
-					nColumn: nocolonne,
+					line: noligne,
+					column: nocolonne,
 					errObj: erreur,
 					time: new Date().toString()
 				}
-				console.log(obj)
+				this.errors.push(obj)
 				handler(obj)
 			}
 		}
@@ -26,6 +26,8 @@ class Catch {
 		this.version = "v0.0.1" // Catch version
 	
 		this.listen(handler)
+	
+		this.errors = []
 	}
 	listen(handler) {
 		if (typeof module !== "undefined" && module.exports) {
@@ -41,6 +43,7 @@ class Catch {
 					err: err,
 					time: new Date().toString()
 				}
+				this.errors.push(obj)
 				handler(obj)
 			});
 		}

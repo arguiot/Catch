@@ -5,6 +5,7 @@ node(handler) {
 				err: err,
 				time: new Date().toString()
 			}
+			this.errors.push(obj)
 			handler(obj)
 		});
 	}

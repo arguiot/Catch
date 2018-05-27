@@ -62,6 +62,7 @@ When there is an error, Catch will automatically run a function and it will pass
 # Additional notes
 I recommend using `html2canvas` in addition to this library to get a screenshot of the website.
 
+You can also access all the previous errors using the `.errors` property.
 ---
 ## Support
 ProType is a project that required a lot of work and effort. You can show your appreciation by leaving a ⭐️. But you can also contribute in a 'financial' way by giving to my [Patreon](https://www.patreon.com/bePatron?u=10987869)

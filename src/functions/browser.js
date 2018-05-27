@@ -1,6 +1,6 @@
 browser(handler) {
 	if (window) {
-		window.onerror = function(messageOrEvent, source, noligne, nocolonne, erreur) {
+		window.onerror = (messageOrEvent, source, noligne, nocolonne, erreur) => {
 			const obj = {
 				err: messageOrEvent,
 				src: source,
@@ -9,6 +9,7 @@ browser(handler) {
 				errObj: erreur,
 				time: new Date().toString()
 			}
+			this.errors.push(obj)
 			handler(obj)
 		}
 	}
