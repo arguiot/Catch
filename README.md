@@ -57,7 +57,7 @@ When there is an error, Catch will automatically run a function and it will pass
 - `column`: The column where the error was thrown
 - `errObj`: A native `ErrorObject` that contains all the information about the error.
 - `time`: When the error was thrown (String)
-
+- `userAgent`: Browser version and information
 
 # Additional notes
 I recommend using `html2canvas` in addition to this library to get a screenshot of the website.

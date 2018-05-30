@@ -1,6 +1,6 @@
 {
     "name": "catch.js",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "description": "Catch and handle errors after deployment",
     "main": "dist/catch.min.js",
     "scripts": {

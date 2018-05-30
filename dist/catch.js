@@ -51,7 +51,8 @@ var Catch = (function() {
               line: noligne,
               column: nocolonne,
               errObj: erreur,
-              time: new Date().toString()
+              time: new Date().toString(),
+              userAgent: window.navigator.userAgent
             };
             _this.errors.push(obj);
             handler(obj);

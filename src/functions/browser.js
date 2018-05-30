@@ -7,7 +7,8 @@ browser(handler) {
 				line: noligne,
 				column: nocolonne,
 				errObj: erreur,
-				time: new Date().toString()
+				time: new Date().toString(),
+				userAgent: window.navigator.userAgent
 			}
 			this.errors.push(obj)
 			handler(obj)
